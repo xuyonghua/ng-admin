@@ -1,0 +1,94 @@
+<nz-layout class="layout">
+  <nz-header>
+    <div class="logo">
+      <img src="./assets/images/logo-full.svg">
+    </div>
+
+    <div class="user-menu">
+      <nz-dropdown nzPlacement="bottomRight">
+        <div class="user" nz-dropdown>
+          <nz-avatar [nzSize]="40" nzIcon="user" nzSrc=""></nz-avatar>
+          <div class="nikeName">Admin</div>
+        </div>
+        <div nz-menu>
+          <div nz-menu-item routerLink="/pro/account/center"><i nz-icon type="user"></i>
+            个人中心
+          </div>
+          <div nz-menu-item routerLink="/pro/account/settings"><i nz-icon type="setting"></i>
+            个人设置
+          </div>
+          <li nz-menu-divider></li>
+          <div nz-menu-item (click)="logout()"><i nz-icon type="logout"></i>
+            退出登录
+          </div>
+        </div>
+      </nz-dropdown>
+    </div>
+
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
+      <li nz-menu-item (click)="toggleCollapsed()">
+        <i nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'" style="margin: 0 auto;font-size: 18px!important;"></i>
+      </li>
+      <li nz-menu-item routerLink="/main/miniprogram">小程序</li>
+      <li nz-menu-item routerLink="/main/app-program">APP</li>
+      <li nz-menu-item><a href="//www.deepbaysz.com/" target="_blank">官网</a></li>
+    </ul>
+
+  </nz-header>
+  <nz-layout>
+    <nz-sider [nzWidth]="!isCollapsed?200:80" style="background:#fff">
+      <ul nz-menu [nzMode]="'inline'" style="height:100%" [nzInlineCollapsed]="isCollapsed" nzTheme='dark'>
+        <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''" routerLink="/main/dashboard">
+          <span title>
+            <i nz-icon type="dashboard"></i>
+            <span>Dashboard</span>
+          </span>
+        </li>
+
+        <li nz-submenu [(nzOpen)]="openMap.sub1" (nzOpenChange)="openHandler('sub1')">
+          <span title><i nz-icon type="user"></i>{{!isCollapsed ? '数据分析' : ''}}</span>
+          <ul>
+            <li nz-menu-item>访问分析</li>
+            <li nz-menu-item>转化</li>
+            <li nz-menu-item>留存</li>
+            <li nz-menu-item>用户画像</li>
+          </ul>
+        </li>
+        <li nz-submenu [(nzOpen)]="openMap.sub2" (nzOpenChange)="openHandler('sub2')">
+          <span title routerLink="/main/daily"><i nz-icon type="laptop"></i>{{!isCollapsed ? '日签管理' : ''}}</span>
+          <ul>
+            <li nz-menu-item>新增日签</li>
+            <li nz-menu-item>默认日签</li>
+            <li nz-menu-item>option7</li>
+            <li nz-menu-item>option8</li>
+          </ul>
+        </li>
+        <li nz-submenu [(nzOpen)]="openMap.sub3" (nzOpenChange)="openHandler('sub3')">
+          <span title><i nz-icon type="notification"></i>{{!isCollapsed ? '课程管理' : ''}}</span>
+          <ul>
+            <li nz-menu-item>创建课程</li>
+            <li nz-menu-item>option10</li>
+            <li nz-menu-item>option11</li>
+            <li nz-menu-item>option12</li>
+          </ul>
+        </li>
+        <li nz-submenu [(nzOpen)]="openMap.sub4" (nzOpenChange)="openHandler('sub4')">
+          <span title><i nz-icon type="customer-service" theme="outline"></i>{{!isCollapsed ? '音频管理' : ''}}</span>
+          <ul>
+            <li nz-menu-item>专辑</li>
+            <li nz-menu-item>小憩</li>
+            <li nz-menu-item>正念</li>
+            <li nz-menu-item>闹铃</li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout class="container">
+      <router-outlet></router-outlet>
+      <!--<nz-content style="background:#fff; padding: 24px; min-height: 280px;height: 100%" class="content">-->
+        <!--Content-->
+      <!--</nz-content>-->
+    </nz-layout>
+  </nz-layout>
+</nz-layout>
+
