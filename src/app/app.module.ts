@@ -8,10 +8,11 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HashLocationStrategy, LocationStrategy, registerLocaleData} from '@angular/common';
-import zh from '@angular/common/locales/zh';
 import {LoginModule} from './login/login.module';
 import {MainModule} from './main/main.module';
 import {HttpService} from './service/http.service';
+import {registerLocaleData} from '@angular/common';
+import zh from '@angular/common/locales/zh';
 
 registerLocaleData(zh);
 
