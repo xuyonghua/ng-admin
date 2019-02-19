@@ -12,10 +12,6 @@ export class LoginComponent implements OnInit {
 
   validateForm: FormGroup;
 
-  constructor(private httpService: HttpService) {
-
-  }
-
   submitForm(): void {
     for (const i of Object.keys(this.validateForm.controls)) {
       this.validateForm.controls[i].markAsDirty();
@@ -32,7 +28,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private httpService: HttpService) {
   }
 
   ngOnInit(): void {
