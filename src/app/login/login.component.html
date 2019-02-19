@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="form-main">
+    <div class="head">
+      <img class="logo" src="./assets/images/logo-color.svg">
+      <span class="title">深湾</span>
+    </div>
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group [nzPrefix]="prefixUser" nzSize="large">
+            <input type="text" nz-input formControlName="userName" placeholder="手机号或者邮箱">
+          </nz-input-group>
+          <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors">请输入手机号或者邮箱</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group [nzPrefix]="prefixLock" nzSize="large" [nzSuffix]="suffixTemplate">
+            <input type="password" nz-input formControlName="password" placeholder="密码">
+          </nz-input-group>
+          <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">请输入密码</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <label nz-checkbox formControlName="remember">
+            <span>记住账号</span>
+          </label>
+          <button nz-button class="login-form-button" [nzType]="'primary'" nzSize="large">登录</button>
+          <a href="">立即注册</a>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+    <ng-template #prefixUser><i nz-icon type="user"></i></ng-template>
+    <ng-template #prefixLock><i nz-icon type="lock"></i></ng-template>
+    <ng-template #suffixTemplate><span class="forgot-link" (click)="test">忘记密码?</span></ng-template>
+  </div>
+
+</div>
+
+
+
