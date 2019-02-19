@@ -11,7 +11,6 @@ import {HashLocationStrategy, LocationStrategy, registerLocaleData} from '@angul
 import {LoginModule} from './login/login.module';
 import {MainModule} from './main/main.module';
 import {HttpService} from './service/http.service';
-import {registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
 
 registerLocaleData(zh);
